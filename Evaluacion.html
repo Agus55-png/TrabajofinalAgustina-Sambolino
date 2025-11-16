@@ -1,0 +1,189 @@
+<!DOCTYPE>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Evaluación - {{NOMBRE_UDC}}</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-evaluacion">
+  <header>
+    <h1 style="background:#ffeef3;">Evaluación</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Programas.html">Programas</a>
+      <a href="Reglamento.html">Reglamento</a>
+      <a href="Evaluacion.html">Evaluacion</a>
+      <a href="Temas.html">Temas</a>
+    </nav>
+    <style>nav {
+  background: rgba(11,86,163,0.08);
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #0b56a3;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;</style>
+  </header>
+
+  <main>
+    <section>
+      <h2 style="background:#fff0f4;">Formulario de evaluación</h2>
+      <style>h1, h2, h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: #0b56a3; /* azul */
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 8px;
+}</style>
+
+      <form action="#" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: {{NOMBRE_COMPLETO}}" required>
+        </div>
+
+        <div class="form-row">
+          <label for="grupo">Grupo</label>
+          <input type="text" id="grupo" name="grupo" placeholder="{{GRUPO}}" required>
+        </div>
+
+        <div class="form-row">
+          <label for="ci">Cédula de identidad</label>
+          <input type="text" id="ci" name="ci" placeholder="{{CEDULA}}" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@mail.com">
+        </div>
+
+        <div class="form-row">
+          <label for="fecha">Fecha de realizado</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <hr>
+
+        <!-- Pregunta 1: respuesta corta (text) -->
+        <div class="form-row">
+          <label>1) Defina brevemente el objetivo principal de la unidad curricular.</label>
+          <input type="text" name="p1" required>
+        </div>
+
+        <!-- Pregunta 2: número -->
+        <div class="form-row">
+          <label>2) ¿Cuántas horas semanales tiene la unidad curricular? (escribe un número)</label>
+          <input type="number" name="p2" min="0" max="40">
+        </div>
+
+        <!-- Pregunta 3: opción múltiple (radio) -->
+        <div class="form-row">
+          <label>3) Seleccione el método de evaluación más frecuente:</label>
+          <label><input type="radio" name="p3" value="examenes" required> Exámenes</label><br>
+          <label><input type="radio" name="p3" value="proyectos"> Proyectos</label><br>
+          <label><input type="radio" name="p3" value="practicas"> Prácticas</label>
+        </div>
+
+        <!-- Pregunta 4: casillas (checkbox) -->
+        <div class="form-row">
+          <label>4) Marque las actividades realizadas durante el año (puede elegir varias):</label>
+          <label><input type="checkbox" name="p4_actividades" value="Cocinar"> Cocinar</label><br>
+          <label><input type="checkbox" name="p4_actividades" value="tareas"> Tareas</label><br>
+          <label><input type="checkbox" name="p4_actividades" value="exposiciones"> Exposiciones</label>
+        </div>
+
+        <!-- Pregunta 5: select -->
+        <div class="form-row">
+          <label>5) Nivel de dificultad percibida de la materia:</label>
+          <select name="p5">
+            <option value="">--Selecciona--</option>
+            <option value="baja">Baja</option>
+            <option value="media">Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+
+        <!-- Pregunta 6: textarea (respuesta larga) -->
+        <div class="form-row">
+          <label>6) Explique cómo aplicaría lo aprendido en la vida cotidiana o en otra materia.</label>
+          <textarea name="p6" rows="4"></textarea>
+        </div>
+
+        <!-- Pregunta 7: range -->
+        <div class="form-row">
+          <label>7) Califique su interés por la unidad (0 - 10): <span id="rangoVal">5</span></label>
+          <input type="range" name="p7" min="0" max="10" value="5" oninput="document.getElementById('rangoVal').innerText = this.value;">
+        </div>
+
+        <!-- Pregunta 8: file (subir evidencia) -->
+        <div class="form-row">
+          <label>8) Si tiene, suba una evidencia (entrega de trabajo, foto de proyecto) - (opcional)</label>
+          <input type="file" name="p8" accept="image/*,application/pdf">
+        </div>
+
+        <!-- Pregunta 9: opción verdadera/falsa (radio) -->
+        <div class="form-row">
+          <label>9) Verdadero o falso: "La asistencia no influye en la calificación final".</label>
+          <label><input type="radio" name="p9" value="verdadero" required> Verdadero</label>
+          <label><input type="radio" name="p9" value="falso"> Falso</label>
+        </div>
+
+        <!-- Pregunta 10: respuesta corta adicional -->
+        <div class="form-row">
+          <label>10) Sugerencias para mejorar la unidad curricular (breve):</label>
+          <input type="text" name="p10">
+        </div>
+
+        <div style="text-align:center; margin-top:12px;">
+          <button type="submit">Enviar evaluación</button>
+        </div>
+      </form>
+    </section>
+    <style>form {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  padding: 15px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.6);
+}
+.form-row { margin-bottom: 12px; }
+label { display:block; margin-bottom:6px; font-weight: bold; font-family: Arial, Helvetica, sans-serif; }
+input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea, select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* pequeña mejora visual para botones */
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #0b56a3;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover { opacity: 0.9; }</style>
+  </main>
+
+  <footer>
+    2025 - Agustina - Sambolino - 9°B
+  </footer>
+   <style>footer {
+  margin-top: 30px;
+  padding: 10px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(0,0,0,0.03);</style>
+  </script>
+</body>
+</html>
